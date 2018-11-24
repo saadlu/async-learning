@@ -23,7 +23,7 @@ public class EchoServer {
     }
 
     private static void listenAsEchoServer(ServerSocket serverSocket) {
-        StdPrintUtility.printlnOnScreen("lisening as echo server");
+        StdPrintUtility.printlnOnScreen("listening as echo server");
         listen(serverSocket);
     }
 
