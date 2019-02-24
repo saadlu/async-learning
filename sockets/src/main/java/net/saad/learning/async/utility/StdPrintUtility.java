@@ -1,4 +1,4 @@
-package net.saad.learning.async.sockets;
+package net.saad.learning.async.utility;
 
 public class StdPrintUtility {
 
@@ -6,16 +6,16 @@ public class StdPrintUtility {
         throw new AssertionError();
     }
 
-    static void printlnFormatted(String format, Object... args) {
+    public static void printlnFormatted(String format, Object... args) {
         String formattedString = String.format(format, args);
         printlnOnScreen(formattedString);
     }
 
-    static void printlnOnScreen(String formattedString) {
+    public static void printlnOnScreen(String formattedString) {
         System.out.println(formattedString);
     }
 
-    static void printOnScreen(String formattedString) {
+    public static void printOnScreen(String formattedString) {
         System.out.print(formattedString);
     }
 }
