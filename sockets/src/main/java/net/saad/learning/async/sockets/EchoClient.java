@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+import net.saad.learning.async.utility.StdPrintUtility;
+import net.saad.learning.async.utility.StdReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -45,13 +47,13 @@ public class EchoClient {
     private static void echoWithServer(PrintWriter toServer, BufferedReader serverReader)
             throws IOException {
 
-        try(BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in))) {
+        try(StdReader stdin = new StdReader()) {
             echoWithServer(toServer, serverReader, stdin);
         }
     }
 
     private static void echoWithServer(PrintWriter toServer, BufferedReader serverReader,
-            BufferedReader stdin) throws IOException {
+            StdReader stdin) throws IOException {
 
         String userInput = promptUser(stdin);
         while (userInput != null) {
@@ -62,8 +64,7 @@ public class EchoClient {
         }
     }
 
-    private static String promptUser(BufferedReader stdin) throws IOException {
-        StdPrintUtility.printOnScreen("message to sent to server (Ctrl+D to end): ");
-        return stdin.readLine();
+    private static String promptUser(StdReader stdin) throws IOException {
+        return stdin.promptUser("message to sent to server (Ctrl+D to end): ");
     }
 }
