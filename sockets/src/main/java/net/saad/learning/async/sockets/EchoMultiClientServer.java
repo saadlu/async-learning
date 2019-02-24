@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import net.saad.learning.async.utility.StdPrintUtility;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,6 +31,7 @@ public class EchoMultiClientServer {
         }
     }
 
+    @SuppressWarnings("squid:S2189")
     private static void handleRequest(ServerSocket serverSocket) throws IOException {
         for(;;) {
             StdPrintUtility.printlnOnScreen("listening as echo server");
